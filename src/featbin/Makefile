@@ -3,6 +3,7 @@ all:
 EXTRA_CXXFLAGS = -Wno-sign-compare
 include ../kaldi.mk
 
+
 BINFILES = add-deltas add-deltas-sdc append-post-to-feats \
            append-vector-to-feats apply-cmvn apply-cmvn-sliding compare-feats \
            compose-transforms compute-and-process-kaldi-pitch-feats \
@@ -17,7 +18,8 @@ BINFILES = add-deltas add-deltas-sdc append-post-to-feats \
            process-kaldi-pitch-feats process-pitch-feats \
            select-feats shift-feats splice-feats subsample-feats \
            subset-feats transform-feats wav-copy wav-reverberate \
-           wav-to-duration
+           wav-to-duration remove-mean fmpe-copy reverse-feats extract-rows \
+           detect-sinusoids compute-aperiodic-feats
 
 OBJFILES =
 
