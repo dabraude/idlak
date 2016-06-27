@@ -3,7 +3,6 @@ all:
 EXTRA_CXXFLAGS = -Wno-sign-compare
 include ../kaldi.mk
 
-
 BINFILES = add-deltas add-deltas-sdc append-post-to-feats \
            append-vector-to-feats apply-cmvn apply-cmvn-sliding compare-feats \
            compose-transforms compute-and-process-kaldi-pitch-feats \
