@@ -152,8 +152,7 @@ $(EXT_SUBDIRS) : mklibdir ext_depend
 #1)The tools depend on all the libraries
 bin fstbin gmmbin fgmmbin sgmmbin sgmm2bin featbin nnetbin nnet2bin nnet3bin chainbin latbin ivectorbin lmbin kwsbin online2bin rnnlmbin idlakbin: \
  base matrix util feat tree optimization thread gmm transform sgmm sgmm2 fstext hmm \
- lm decoder lat cudamatrix nnet nnet2 nnet3 ivector chain kws online2 rnnlm
-
+ lm decoder lat cudamatrix nnet nnet2 nnet3 ivector chain kws online2 rnnlm idlakfeat
 
 #2)The libraries have inter-dependencies
 base: base/.depend.mk
