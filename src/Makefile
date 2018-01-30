@@ -5,12 +5,21 @@
 SHELL := /bin/bash
 
 
+<<<<<<< HEAD
 
 SUBDIRS = base matrix util feat tree thread gmm transform sgmm \
           fstext hmm lm decoder lat kws cudamatrix nnet idlakfeat \
           bin fstbin gmmbin fgmmbin sgmmbin featbin \
           nnetbin latbin sgmm2 sgmm2bin nnet2 nnet3 rnnlm chain nnet3bin nnet2bin kwsbin \
           ivector ivectorbin online2 online2bin lmbin chainbin rnnlmbin idlakbin
+=======
+SUBDIRS = base matrix util feat tree gmm transform \
+          fstext hmm lm decoder lat kws cudamatrix nnet \
+          bin fstbin gmmbin fgmmbin featbin \
+          idlaktxp idlakfeat idlakbin idlaktxpbin \
+          nnetbin latbin sgmm2 nnet2 nnet3 rnnlm chain nnet3bin nnet2bin sgmm2bin kwsbin \
+          ivector ivectorbin online2 online2bin lmbin chainbin rnnlmbin
+>>>>>>> Added idlaktxp, fixed botched merge
 
 MEMTESTDIRS = base matrix util feat tree gmm transform \
           fstext hmm lm decoder lat nnet kws chain \
@@ -150,9 +159,10 @@ $(EXT_SUBDIRS) : mklibdir ext_depend
 ### Dependency list ###
 # this is necessary for correct parallel compilation
 #1)The tools depend on all the libraries
-bin fstbin gmmbin fgmmbin sgmmbin sgmm2bin featbin nnetbin nnet2bin nnet3bin chainbin latbin ivectorbin lmbin kwsbin online2bin rnnlmbin idlakbin: \
- base matrix util feat tree optimization thread gmm transform sgmm sgmm2 fstext hmm \
- lm decoder lat cudamatrix nnet nnet2 nnet3 ivector chain kws online2 rnnlm idlakfeat
+bin idlakbin idlaktxpbin fstbin gmmbin fgmmbin sgmmbin sgmm2bin featbin nnetbin nnet2bin nnet3bin chainbin latbin ivectorbin lmbin kwsbin online2bin rnnlmbin: \
+ base matrix util feat idlakfeat idlaktxp tree optimization thread gmm transform sgmm sgmm2 fstext hmm \
+ lm decoder lat cudamatrix nnet nnet2 nnet3 ivector chain kws online2 rnnlm
+
 
 #2)The libraries have inter-dependencies
 base: base/.depend.mk
@@ -176,6 +186,7 @@ rnnlm: base util matrix cudamatrix nnet3 lm hmm
 chain: lat hmm tree fstext matrix cudamatrix util base
 ivector: base util matrix transform tree gmm
 #3)Dependencies for optional parts of Kaldi
+<<<<<<< HEAD
 onlinebin: base matrix util feat tree optimization gmm transform sgmm sgmm2 fstext hmm lm decoder lat cudamatrix nnet nnet2 online thread
 # python-kaldi-decoding: base matrix util feat tree optimization thread gmm transform sgmm sgmm2 fstext hmm decoder lat online
 online: decoder gmm transform feat matrix util base lat hmm thread tree
@@ -183,3 +194,12 @@ online2: decoder gmm transform feat matrix util base lat hmm thread tree ivector
 kws: base util thread hmm tree matrix lat
 idlakfeat: base util hmm thread feat transform
 
+=======
+onlinebin: base matrix util feat tree gmm transform sgmm2 fstext hmm lm decoder lat cudamatrix nnet nnet2 online
+# python-kaldi-decoding: base matrix util feat tree gmm transform sgmm2 fstext hmm decoder lat online
+online: decoder gmm transform feat matrix util base lat hmm tree
+online2: decoder gmm transform feat matrix util base lat hmm tree ivector cudamatrix nnet2 nnet3 chain
+kws: base util hmm tree matrix lat
+idlaktxp: base util matrix
+idlakfeat: base util hmm feat transform
+>>>>>>> Added idlaktxp, fixed botched merge
